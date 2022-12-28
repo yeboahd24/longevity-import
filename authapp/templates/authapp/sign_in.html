@@ -1,0 +1,21 @@
+{% extends 'authapp/base.html' %}
+{% block content %}
+    {% if from_register %}
+        Confirmation message sent.<br>
+        Confirmation code: {{ confirmation }}<br>
+        Link to go to: <a href="{% url 'authapp:verify' email  confirmation %}">{{ pth }}</a><br>
+        The confirmation email was saved in the path: <strong>tmp/email-messages.</strong>
+    {% endif %}
+    <form action="{% url 'auth:sign_in' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if next %}
+        <input name="next" type="hidden" value="{{ next }}" />
+    {% endif %}
+    {{ login_form.as_p }}
+    <br>
+    <button style='cursor: pointer;' type="submit">Sign in</button>
+    </form>
+    <button>
+        <a style='text-decoration: none; color: #1b1b1b' href="{% url 'auth:sign_up' %}">Sign up</a>
+    </button>
+{% endblock %}

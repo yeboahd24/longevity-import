@@ -1,0 +1,14 @@
+{% extends 'authapp/base.html' %}
+{% block content %}
+    <form action="{% url 'auth:sign_up' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ register_form.as_ul }}
+    <br>
+        <button style='cursor: pointer;' type="submit" >Sign Up</button>
+    </form>
+    <button>
+        <a style='text-decoration: none; color: #1b1b1b' href="{% url 'auth:sign_in' %}">Sign in</a>
+    </button>
+        <div>{{ message }}</div>
+        <div>{{ conf_code }}</div>
+{% endblock %}

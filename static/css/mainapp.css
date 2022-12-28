@@ -1,0 +1,15 @@
+ul.errorlist {
+    color: red;
+}
+
+.notifications {
+    color: green;
+}
+
+.abc > li:not(:first-of-type) {
+    display: none;
+}
+
+.form-patient > li {
+    display: none;
+}

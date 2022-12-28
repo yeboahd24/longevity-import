@@ -1,0 +1,37 @@
+{% extends 'mainapp/base.html' %}
+
+
+{% block content %}
+    <div class="container123">
+        <form class="form-patient" action="{% url 'load_data' %}" method="post" enctype="multipart/form-data">
+            <label for="patients">Patients</label>
+            <select name="patients" id="patients">
+                {% for patient in all_patients %}
+                    <option value={{ patient.id }}>{{ patient.first_name }} {{ patient.last_name }}</option>
+                {% endfor %}
+            </select>
+            <label for="new-patient">New patient</label>
+            <input id="new-patient" name="new-patient" type="checkbox"><br>
+            {% csrf_token %}
+            <div class="abc">
+                {{ patient_form.as_ul }}
+            </div>
+            <label for="load-file">Load file</label>
+            <input id="load-file" name="load-file" type="checkbox"><br>
+            {{ file_form.as_ul }}
+            <div class="analysis">
+                {% for analysis in required_analyzes %}
+
+                    <div>{{ analysis.parameter }}</div>
+                {% endfor %}
+            </div>
+            <br><button style='cursor: pointer;' type="submit">Load</button>
+        </form>
+        <button>
+            <a style='text-decoration: none; color: #1b1b1b' href="{% url 'authapp:main' %}">Back</a>
+        </button>
+
+        {% include 'mainapp/includes/inc_notification.html' %}
+    </div>
+
+{% endblock %}

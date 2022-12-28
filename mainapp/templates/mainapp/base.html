@@ -1,0 +1,27 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            {{ title|title }}
+        {% endblock %}
+    </title>
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/mainapp.css' %}">
+    {% endblock %}
+    {% block js %}
+        <script
+          src="https://code.jquery.com/jquery-3.6.0.min.js"
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+          crossorigin="anonymous"></script>
+        <script src = "{% static 'js/patient_script.js' %}"></script>
+    {% endblock %}
+</head>
+<body>
+    <div>
+            {% block content %}
+			{% endblock %}
+    </div>
+</body>
+</html>

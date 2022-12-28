@@ -1,0 +1,21 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h2>Hello, {{ user.username }}</h2>
+        <button>
+            <a style='text-decoration: none; color: #1b1b1b' href="{% url 'auth:sign_out' %}">Sign out</a>
+        </button>
+        <button>
+            <a style='text-decoration: none; color: #1b1b1b' href="{% url 'load_data' %}">Load data</a>
+        </button>
+    {% else %}
+        <button>
+            <a style='text-decoration: none; color: #1b1b1b' href="{% url 'auth:sign_in' %}">Sign in</a>
+        </button>
+        <button>
+            <a style='text-decoration: none; color: #1b1b1b' href="{% url 'auth:sign_up' %}">Sign up</a>
+        </button>
+    {% endif %}
+{% endblock %}

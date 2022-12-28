@@ -1,0 +1,14 @@
+{% extends 'authapp/base.html' %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <h3>Congratulate!</h3>
+    <br>
+    <h4>User {{user.username}} has been confirmed.</h4>
+  {% else %}
+    <h3>Verification failed.</h3>
+  {% endif %}
+  <br>
+  <button>
+    <a style='text-decoration: none; color: #1b1b1b' href="{% url 'authapp:main' %}">To the main page</a>
+  </button>
+{% endblock %}
