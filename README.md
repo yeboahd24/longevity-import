@@ -1,10 +1,9 @@
 ## task_for_Longevity_company
 
-В задании реализована регистрация и аутентификация пользователя, а также
-возможность сохранения данных о пациенте как через форму, так и через
-загрузку данных из файла. Поддерживаемые форматы файлов: ``xlsx``, ``csv``, ``docx``, ``pdf``.
-Примеры загружаемых файлов находятся в директории ***sample_files***.
+The task implements user registration and authentication, as well as the ability to save patient data both through a form and by loading data from a file. Supported file formats: xlsx, csv, docx, pdf. Sample files to upload are located in the sample_files directory. 
 
-Рассмотрены случаи загрузки данных как о новом пациенте, так и о уже занесенном
-в БД.
+The cases of loading data both about a new patient and about an already registered one are considered. 
 # longevity-import
+
+
+ 
